@@ -17,7 +17,7 @@ CSV files:
 
 ## Part 0. Setup and Background
 
-Before start coding, make sure you have downloaded `CSE8ACSV.py` and both of the provided CSV files (`fortune500.csv` and `spotify.csv`) into the same directory as your `csv_processing.py` file. In this programming assignment, you will be working with CSV files and practicing processing CSV data using Python. For basic knowledge of CSV files and how to use the `CSE8ACSV` provided functions, refer to the [lab instructions](https://github.com/CaoAssignments/cse8a-wi26-pa8/blob/main/lab_instructions.md#part-0-csv-file-processing). The starter code has been provided in `csv_processing.py` including function signatures and necessary data loading.
+Before start coding, make sure you have downloaded `CSE8ACSV.py` and both of the provided CSV files (`fortune500.csv` and `spotify.csv`) into the same directory as your `csv_processing.py` file. In this programming assignment, you will be working with CSV files and practicing processing CSV data using Python. For basic knowledge of CSV files and how to use the `CSE8ACSV` provided functions, refer to the [lab instructions](https://github.com/CaoAssignments/cse8a-wi26-pa8/blob/main/PA8%20Lab.md#part-2-working-with-csv-files)). The starter code has been provided in `csv_processing.py` including function signatures and necessary data loading.
 
 ## Part 1. Implementation (100 points)
 
