@@ -17,7 +17,7 @@ CSV files:
 
 ## Part 0. Setup and Background
 
-Before start coding, make sure you have downloaded `CSE8ACSV.py` and both of the provided CSV files (`fortune500.csv` and `spotify.csv`) into the same directory as your `csv_processing.py` file. In this programming assignment, you will be working with CSV files and practicing processing CSV data using Python. For basic knowledge of CSV files and how to use the `CSE8ACSV` provided functions, refer to the [lab instructions](https://github.com/CaoAssignments/cse8a-wi26-pa8/blob/main/PA8%20Lab.md#part-2-working-with-csv-files)). The starter code has been provided in `csv_processing.py` including function signatures and necessary data loading.
+Before start coding, make sure you have downloaded `CSE8ACSV.py` and both of the provided CSV files (`fortune500.csv` and `spotify.csv`) into the same directory as your `csv_processing.py` file. In this programming assignment, you will be working with CSV files and practicing processing CSV data using Python. For basic knowledge of CSV files and how to use the `CSE8ACSV` provided functions, refer to the [lab instructions](https://github.com/CaoAssignments/cse8a-wi26-pa8/blob/main/PA8%20Lab.md#part-2-working-with-csv-files). The starter code has been provided in `csv_processing.py` including function signatures and necessary data loading.
 
 ## Part 1. Implementation (100 points)
 
@@ -125,8 +125,8 @@ This function takes in a dataset of Spotify tracks and a list of artist names, a
 
 - Examples:
 ```python
-find_most_popular_by_artist(spotify_data, ['Jason Mraz']) # should return {'Jason Mraz': ("I'm Yours", 80)} (the most popular track by Jason Mraz in the dataset is "I'm Yours" with a popularity score of 80.0)
-find_most_popular_by_artist(spotify_data, ['Jason Mraz', 'Andrew Foy']) # should return {'Jason Mraz': ("I'm Yours", 80.0), 'Andrew Foy': ('Love Nwantiti', 30.0)}
+find_most_popular_by_artist(spotify_data, ['Jason Mraz']) # should return {'Jason Mraz': ("I'm Yours", 80)} (the most popular track by Jason Mraz in the dataset is "I'm Yours" with a popularity score of 80)
+find_most_popular_by_artist(spotify_data, ['Jason Mraz', 'Andrew Foy']) # should return {'Jason Mraz': ("I'm Yours", 80), 'Andrew Foy': ('Love Nwantiti', 30)}
 find_most_popular_by_artist(spotify_data, ['Nonexistent Artist']) # should return {} (no tracks by this artist in the dataset)
 ```
 

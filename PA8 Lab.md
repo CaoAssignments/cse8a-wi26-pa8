@@ -23,6 +23,12 @@ By the end of this lab, you will be able to:
 
 ---
 
+## Part 0: Setup
+
+For this lab, you will need to use `CSE8ACSV.py`, which contains a helper function `load_csv` to read CSV files into a list of dictionaries. Make sure to download `CSE8ACSV.py` and place it in the same directory as your `pa8_lab.py` file. And include `from CSE8ACSV import load_csv` at the top of your `pa8_lab.py` file to use the function.
+
+The CSV file you will be working with is `tech_diversity.csv`, which contains data about the diversity of employees at various tech companies. You should also download this file and place it in the same directory as your `pa8_lab.py` file.
+
 ## Part 1: Python Dictionaries (The Basics)
 
 ### What Are Dictionaries?
@@ -51,9 +57,9 @@ else:
     print("GPA not found!")       # This will print, since "GPA" is not a key
 ```
 
-### Avoiding the `KeyError`
+### Avoiding the `KeyError`: Checking for Keys
 
-If you try to access or modify a key that does not exist, your program will crash with a KeyError. Always use the in keyword to check or initialize keys before modifying them:
+If you try to access or modify a key that does not exist, your program will crash with a `KeyError`. Always use the `in` keyword to check or initialize keys before modifying them:
 
 ```python
 counts = {}
@@ -67,9 +73,29 @@ if item not in counts:
 counts[item] += 1        # Now it is safe to add to it
 ```
 
+### Watch out for duplicate keys!
+
+Dictionaries do not allow duplicate keys, so if you try to create a dictionary with the same key multiple times, only the last value will be kept. No error or warning will be raised, which can lead to unexpected behavior if you're not careful!
+
+```python
+# what if we accidentally create a dictionary with duplicate keys?
+student = {"name": "Alice", "age": 19, "name": "Bob"}  # The second "name" key will overwrite the first one!
+print(student)  # {'name': 'Bob', 'age': 19} - "
+```
+A very common mistake is to accidentally rewrite a key when you meant to create a new one. Always double-check your keys to make sure they are unique and correctly spelled!
+
+```python
+student = {"name": "Alice", "age": 19}
+
+# Oops, we meant to create a "major" key but accidentally wrote "name" again!
+student["name"] = "Computer Science"  # This will overwrite the "name" key, and no error will be raised!
+print(student)  # {'name': 'Computer Science', 'age': 19}
+```
+
+
 ### Practice using dictionaries!
 
-In your pa8_lab.py file, write a function that updates a store's inventory: `def update_inventory(inventory, item_name, quantity)`. The function takes in an `inventory` dictionary, an `item_name` string, and a `quantity` integer. The function should update the inventory as follows:
+In your `pa8_lab.py` file, write a function that updates a store's inventory: `def update_inventory(inventory, item_name, quantity)`. The function takes in an `inventory` dictionary, an `item_name` string, and a `quantity` integer. The function should update the inventory as follows:
 - If the `item_name` is already in the `inventory` dictionary, add the `quantity` to its current value.
 - If the `item_name` is NOT in the dictionary, add it as a new key with the `quantity` as its value.
 
@@ -107,13 +133,15 @@ In this CSV, the first line is the header that defines the column names. Each co
 To process CSV files in Python, a common way is to represent them as a list of dictionaries, where each dictionary corresponds to a row in the CSV, and the keys of the dictionary are the column names from the header. For example, using the `load_csv` function provided in the `CSE8ACSV.py` file, the above CSV would be represented as:
 
 ```python
+from CSE8ACSV import load_csv
+
 csv_data = load_csv('example.csv')
 print(csv_data)
 # Output:
 # [{'Name': 'Alice', 'Role': 'Student', 'Age': '19'}, {'Name': 'Bob', 'Role': 'Tutor', 'Age': '22'}, {'Name': 'Charlie', 'Role': 'Student', 'Age': '20'}]
 ```
 
-To process this data, we use a for loop to look at each row (which is a dictionary) one by one:
+To process this data, we use a `for` loop to look at each row (which is a dictionary) one by one:
 
 ```python
 for row in csv_data:
@@ -124,7 +152,7 @@ for row in csv_data:
 ```
 
 ### Practice processing CSV data!
-Download the `tech_diversity.csv` file and put it in the same directory as your `pa8_lab.py` file. This CSV contains data about the diversity of employees at various tech companies. Some of the columns include `'Company'`, `'white'`, `'asian'`, `'hispanic'`, `'black'`, and `'total_female'`. Keep in mind that all values (except the company name) are represented as strings in the CSV file!
+Download the `tech_diversity.csv` file and put it in the same directory as your `pa8_lab.py` file. This CSV contains data about the diversity of employees at various tech companies. Some of the columns include `'Company'`, `'white'`, `'asian'`, `'hispanic'`, `'black'`, and `'total_female'`. **Keep in mind that all values (except the company name) are represented as strings in the CSV file!**
 
 In your `pa8_lab.py` file, write a function `get_companies_above_threshold(diversity_data, demographic_key, threshold)` that takes in the dataset (a list of dictionaries), a demographic string (like `'total_female'`), and a threshold float (like `50.0`). The function should return a **list of company names** that have a percentage strictly greater than the given threshold for that demographic.
 
