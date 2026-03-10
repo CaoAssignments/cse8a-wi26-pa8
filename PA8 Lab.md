@@ -152,7 +152,7 @@ for row in csv_data:
 ```
 
 ### Practice processing CSV data!
-Download the `tech_diversity.csv` file and put it in the same directory as your `pa8_lab.py` file. This CSV contains data about the diversity of employees at various tech companies. Some of the columns include `'Company'`, `'white'`, `'asian'`, `'hispanic'`, `'black'`, and `'total_female'`. **Keep in mind that all values (except the company name) are represented as strings in the CSV file!**
+Download the `tech_diversity.csv` file and put it in the same directory as your `pa8_lab.py` file. This CSV contains data about the diversity of employees at various tech companies. Some of the columns include `'Company'`, `'white'`, `'asian'`, `'hispanic'`, `'black'`, and `'total_female'`. **Keep in mind that all values are represented as strings in the CSV file!**
 
 In your `pa8_lab.py` file, write a function `get_companies_above_threshold(diversity_data, demographic_key, threshold)` that takes in the dataset (a list of dictionaries), a demographic string (like `'total_female'`), and a threshold float (like `50.0`). The function should return a **list of company names** that have a percentage strictly greater than the given threshold for that demographic.
 
