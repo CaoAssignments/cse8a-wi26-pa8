@@ -2,6 +2,10 @@
 
 **Due Date: Sunday, March 15, 2026, 11:59 PST**
 
+## Updates
+- "codec error": `spotify.csv` contains non-english characters in song names. If you are running the code on Windows, you may encounter `codec error` when Windows try to decode the file not using UTF-8 encoding. Make sure you use updated `CSE8ACSV.py` in GitHub to enforce UTF-8 encoding.
+- negative threshold for `find_profitable_companies_above_threshold`: a bug was causing the check for negative profit not to be enforced, now it is fixed.
+
 ## Provided Files
 Code files:
 - `csv_processing.py` (Starter code file)
