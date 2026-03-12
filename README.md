@@ -111,11 +111,13 @@ This function takes in a dataset of Spotify tracks and a list of artist names, a
 
 - You can assume `spotify_data` is a list of dictionaries representing the Spotify track data, where each dictionary corresponds to a row. (You should use the `load_csv` function from `CSE8ACSV` library to read the CSV file into this format.)
 - You can assume `artist_list` is a list of strings representing the names of the artists you want to search for. For artist name that does not exist in the dataset, please ignore them and do not include them in the average duration calculation. If none of the artists in `artist_list` exist in the dataset, return 0.0.
+- **Please treat any combination of multiple artists as a single, separate artist string (an exact match). You do not need to split the string**.
 
 - Examples:
 ```python
 get_average_duration_by_artist(spotify_data, ['Jason Mraz']) # should return 224410.66 (average duration of all tracks by Jason Mraz in the dataset)
 get_average_duration_by_artist(spotify_data, ['Nonexistent Artist']) # should return 0.0 (no tracks by this artist in the dataset)
+get_average_duration_by_artist(spotify_data, ['Jason Marz;Andrew Foy']) # should ONLY consider exact collaboration between Jason and Andrew. It does NOT include Jason's solo works, Andrew's solo works, or works involving a third artist (e.g., "Jason;Andrew;Ben").
 ```
 - Don't worry about the formatting and rounding of the returned output. Autograder will check for the correctness of the returned value within a reasonable tolerance.
 
@@ -126,12 +128,14 @@ This function takes in a dataset of Spotify tracks and a list of artist names, a
 - You can assume `spotify_data` is a list of dictionaries representing the Spotify track data, where each dictionary corresponds to a row. (You should use the `load_csv` function from `CSE8ACSV` library to read the CSV file into this format.)
 - You can assume `artist_list` is a list of strings representing the names of the artists you want to search for. For artist name that does not exist in the dataset, please ignore them and do not include them in the returned dictionary. If none of the artists in `artist_list` exist in the dataset, return an empty dictionary.
 - The returned dictionary should contain the artist names as keys and tuples of the form `(track_name, popularity)` as values, where `track_name` is a string and `popularity` is an integer. The order of the tuples in the returned list does not matter.
+- - **Please treat any combination of multiple artists as a single, separate artist string (an exact match). You do not need to split the string**.
 
 - Examples:
 ```python
 find_most_popular_by_artist(spotify_data, ['Jason Mraz']) # should return {'Jason Mraz': ("I'm Yours", 80)} (the most popular track by Jason Mraz in the dataset is "I'm Yours" with a popularity score of 80)
 find_most_popular_by_artist(spotify_data, ['Jason Mraz', 'Andrew Foy']) # should return {'Jason Mraz': ("I'm Yours", 80), 'Andrew Foy': ('Love Nwantiti', 30)}
 find_most_popular_by_artist(spotify_data, ['Nonexistent Artist']) # should return {} (no tracks by this artist in the dataset)
+find_most_popular_by_artist(spotify_data, ['Jason Marz;Andrew Foy']) # should ONLY consider exact collaboration between Jason and Andrew. It does NOT include Jason's solo works, Andrew's solo works, or works involving a third artist (e.g., "Jason;Andrew;Ben").
 ```
 
 ## Part 2: Submission
